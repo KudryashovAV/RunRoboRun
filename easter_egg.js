@@ -2,9 +2,10 @@ const element = document.getElementById("robot");
 const element2 = document.getElementById("robot2");
 const animationDelay = 5000;
 
-setTimeout(function() {
-    play()
-}, 5200);
+function play() {
+    const audio = document.getElementById("audio");
+    audio.play();
+}
 
 let showAnimation = ()  => {
     const toppx = window.scrollY
@@ -14,11 +15,12 @@ let showAnimation = ()  => {
     element.style.top = toppx + 200 + "px"
     setTimeout(function() {
         element.classList.add("hidden");
-    }, 4995);
+    }, 4990);
     setTimeout(function() {
         element2.classList.remove("hidden");
         element2.classList.add("robot2");
         element2.style.top = toppx + 200 + "px"
+        play()
     }, 4980);
 }
 let timer = setTimeout(showAnimation, animationDelay);
@@ -38,8 +40,4 @@ window.addEventListener("mousedown", ()=> {
     timerUpdate();
 })
 
-function play() {
-    const audio = document.getElementById("audio");
-    audio.muted = true;
-    audio.play();
-}
+
